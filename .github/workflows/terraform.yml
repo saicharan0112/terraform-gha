@@ -21,7 +21,6 @@ jobs:
       run: terraform init
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.TERRAFORM }}
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.TERRAFORM }}
 
     # - name: Terraform Format
     #   run: terraform  fmt -check
@@ -30,10 +29,8 @@ jobs:
       run: terraform plan
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.TERRAFORM }}
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.TERRAFORM }}
 
     - name: Terraform Apply
       run: terraform apply -auto-approve
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.TERRAFORM }}    
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.TERRAFORM }}

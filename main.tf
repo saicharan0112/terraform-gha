@@ -5,11 +5,6 @@ terraform {
       version = "4.51.0"
     }
   }
-
-  backend "gcs" {
-    bucket  = "tf-state-prod"
-    prefix  = "terraform/state"
-  }
 }
 
 provider "google" {
@@ -37,18 +32,4 @@ resource "google_compute_instance" "vm_instance" {
     access_config {
     }
   }
-}
-
-data "terraform_remote_state" "foo" {
-  backend = "gcs"
-  config = {
-    bucket  = "terraform-state"
-    prefix  = "prod"
-  }
-}
-
-# Terraform >= 0.12
-resource "local_file" "foo" {
-  content  = data.terraform_remote_state.foo.outputs.greeting
-  filename = "${path.module}/outputs.txt"
 }
