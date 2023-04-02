@@ -9,7 +9,7 @@ terraform {
 
 provider "google" {
   # credentials = file("handy-hexagon-351617-681ad82a587b.json")
-  credentials = file(var.credentials_file)
+  # credentials = env(var.credentials_file)
   # project = "handy-hexagon-351617"
   project =  var.project
   # region  = "us-central1"
