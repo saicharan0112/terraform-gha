@@ -8,14 +8,9 @@ terraform {
 }
 
 provider "google" {
-  # credentials = file("handy-hexagon-351617-681ad82a587b.json")
-  # credentials = env(var.credentials_file)
-  # project = "handy-hexagon-351617"
-  project =  var.project
-  # region  = "us-central1"
-  region = var.region
-  # zone    = "us-central1-c"
-  zone = var.zone
+  project = "handy-hexagon-351617"
+  region  = "us-central1"
+  zone    = "us-central1-c"
 }
 
 resource "google_compute_network" "vpc_network" {
